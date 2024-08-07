@@ -1,11 +1,12 @@
-import { typeOrmAsyncConfig } from '@config/typeorm.config';
-import { AppLoggerMiddleware } from '@logger-middlewarelogger.middleware';
-import { LoggerModule } from '@loggerlogger.module';
 import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserModule } from '@user/user.module';
 import path = require('path');
+import { LoggerModule } from '@logger/logger.module';
+import { HealthCheckModule } from '@health-check/health-check.module';
+import { AppLoggerMiddleware } from '@logger-middleware/logger.middleware';
+import { typeOrmAsyncConfig } from '@config/typeorm.config';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import path = require('path');
     TypeOrmModule.forRootAsync(typeOrmAsyncConfig),
     LoggerModule.register('init_deploy_aws'),
     UserModule,
+    HealthCheckModule,
   ],
   controllers: [],
   providers: [],

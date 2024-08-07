@@ -28,10 +28,13 @@
         "./src/modules/logger/*"
       ],
       "@user*": [
-        "./src/modules/user*"
+        "./src/modules/user/*"
       ],
       "@logger-middleware*": [
         "./src/middlewares/logger/*"
+      ],
+      "@health-check*": [
+        "./src/modules/health-check/*"
       ],
     }
   }
