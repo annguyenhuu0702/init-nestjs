@@ -29,4 +29,4 @@ COPY --from=builder /usr/src/app/dist ./dist
 COPY --from=builder /usr/src/app/tsconfig.json ./
 
 # Chạy ứng dụng
-CMD ["npm", "run", "start:dev"]
+CMD ["npm", "run", "start:prod"]

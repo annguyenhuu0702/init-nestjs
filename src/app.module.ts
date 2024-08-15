@@ -7,6 +7,7 @@ import { LoggerModule } from '@logger/logger.module';
 import { HealthCheckModule } from '@health-check/health-check.module';
 import { AppLoggerMiddleware } from '@logger-middleware/logger.middleware';
 import { typeOrmAsyncConfig } from '@config/typeorm.config';
+import { AppGatewayModule } from '@app-gateway/app-gateway.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { typeOrmAsyncConfig } from '@config/typeorm.config';
     LoggerModule.register('init_deploy_aws'),
     UserModule,
     HealthCheckModule,
+    AppGatewayModule
   ],
   controllers: [],
   providers: [],

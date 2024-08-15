@@ -36,6 +36,9 @@
       "@health-check*": [
         "./src/modules/health-check/*"
       ],
+      "@app-gateway/*": [
+        "src/modules/app-gateway/*"
+      ],
     }
   }
 }
