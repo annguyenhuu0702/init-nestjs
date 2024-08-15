@@ -8,6 +8,7 @@ import { HealthCheckModule } from '@health-check/health-check.module';
 import { AppLoggerMiddleware } from '@logger-middleware/logger.middleware';
 import { typeOrmAsyncConfig } from '@config/typeorm.config';
 import { AppGatewayModule } from '@app-gateway/app-gateway.module';
+import { AuthModule } from '@auth/auth.module';
 
 @Module({
   imports: [
@@ -19,7 +20,8 @@ import { AppGatewayModule } from '@app-gateway/app-gateway.module';
     LoggerModule.register('init_deploy_aws'),
     UserModule,
     HealthCheckModule,
-    AppGatewayModule
+    AppGatewayModule,
+    AuthModule,
   ],
   controllers: [],
   providers: [],

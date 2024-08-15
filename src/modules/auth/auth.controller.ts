@@ -1,0 +1,34 @@
+import { AuthDto } from '@auth/dto/auth.dto';
+import { IRequestAuth } from '@commoninterface/common.interface';
+import { Body, Controller, Get, Post, Request, UseGuards } from '@nestjs/common';
+import { AuthGuard } from '@nestjs/passport';
+import { ApiTags } from '@nestjs/swagger';
+import { AuthService } from '@auth/auth.service';
+import { LocalAuthGuard } from '@auth/local-auth.guard';
+import { UserEntity } from '@userentity/user.entity';
+import { JwtAuthGuard } from '@auth/jwt-auth.guard';
+
+@Controller('auth')
+@ApiTags('auth')
+export class AuthController {
+  constructor(private authService: AuthService) {}
+
+  @UseGuards(AuthGuard('local'))
+  @Post('login')
+  @UseGuards(LocalAuthGuard)
+  @Post('auth/login')
+  async login(
+    @Body() authDto: AuthDto,
+    @Request() req: IRequestAuth<Omit<UserEntity, 'password'>>,
+  ) {
+    return this.authService.login({
+      user: req.user,
+    });
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Get('profile')
+  getProfile(@Request() req: IRequestAuth<Omit<UserEntity, 'password'>>) {
+    return req.user;
+  }
+}

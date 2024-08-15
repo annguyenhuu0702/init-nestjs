@@ -12,6 +12,7 @@ import { Server, Socket } from 'socket.io';
 
 @WebSocketGateway(3001, {
   cors: {
+    allowedHeaders: '*',
     origin: '*',
   },
 })
