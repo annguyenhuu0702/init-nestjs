@@ -2,7 +2,7 @@ import { AuthDto } from '@auth/dto/auth.dto';
 import { IRequestAuth } from '@commoninterface/common.interface';
 import { Body, Controller, Get, Post, Request, UseGuards } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
-import { ApiTags } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { AuthService } from '@auth/auth.service';
 import { LocalAuthGuard } from '@auth/local-auth.guard';
 import { UserEntity } from '@userentity/user.entity';
@@ -27,6 +27,7 @@ export class AuthController {
   }
 
   @UseGuards(JwtAuthGuard)
+  @ApiBearerAuth()
   @Get('profile')
   getProfile(@Request() req: IRequestAuth<Omit<UserEntity, 'password'>>) {
     return req.user;

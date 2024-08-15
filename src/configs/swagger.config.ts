@@ -3,7 +3,13 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import fs = require('fs');
 const json = JSON.parse(fs.readFileSync('package.json', 'utf8'));
 
-const setupSwagger = ({ app, swaggerPrefix }: { app: NestExpressApplication; swaggerPrefix?: string }) => {
+const setupSwagger = ({
+  app,
+  swaggerPrefix,
+}: {
+  app: NestExpressApplication;
+  swaggerPrefix?: string;
+}) => {
   const swaggerConfig = new DocumentBuilder()
     .setTitle('Mickey API')
     .setDescription('Mickey API description')
