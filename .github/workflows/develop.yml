@@ -1,4 +1,4 @@
-name: Deploy develop
+name: develop
 
 run-name: Deploy ${{ inputs.platform }} on ${{ inputs.branch }}
 
