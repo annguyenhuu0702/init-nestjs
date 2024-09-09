@@ -1,0 +1,17 @@
+name: Test Workflow
+
+on:
+  workflow_dispatch:
+    inputs:
+      test_input:
+        description: 'A test input'
+        required: true
+        default: 'test_value'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Echo test input
+        run: echo ${{ inputs.test_input }}
