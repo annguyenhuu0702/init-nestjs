@@ -21,19 +21,19 @@
       "@config/*": [
         "./src/configs/*"
       ],
-      "@common*": [
+      "@common/*": [
         "./src/common/*"
       ],
-      "@logger*": [
+      "@logger/*": [
         "./src/modules/logger/*"
       ],
-      "@user*": [
+      "@user/*": [
         "./src/modules/user/*"
       ],
-      "@logger-middleware*": [
+      "@logger-middleware/*": [
         "./src/middlewares/logger/*"
       ],
-      "@health-check*": [
+      "@health-check/*": [
         "./src/modules/health-check/*"
       ],
       "@app-gateway/*": [

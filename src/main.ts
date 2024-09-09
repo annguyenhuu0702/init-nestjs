@@ -2,10 +2,10 @@ import { HttpAdapterHost, NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { ConfigService } from '@nestjs/config';
 import { ValidationPipe } from '@nestjs/common';
-import { GlobalExceptionFilter } from '@commonfilter/global-exception.filter';
 import { setupSwagger } from '@config/swagger.config';
 import { NestExpressApplication } from '@nestjs/platform-express';
 import { LoggerService } from '@logger/logger.service';
+import { GlobalExceptionFilter } from '@common/filter/global-exception.filter';
 
 async function bootstrap() {
   const app: NestExpressApplication = await NestFactory.create(AppModule);
