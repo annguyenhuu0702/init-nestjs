@@ -1,5 +1,7 @@
-name: develop
+name: Deploy
+
 run-name: Deploy ${{ inputs.platform }} on ${{ inputs.branch }}
+
 on:
   workflow_dispatch:
     inputs:
