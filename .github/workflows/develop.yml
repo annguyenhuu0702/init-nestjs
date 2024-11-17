@@ -44,4 +44,4 @@ jobs:
             docker pull ${{ secrets.DOCKER_HUB_USERNAME }}/init_deploy:latest
             docker stop init_deploy || true
             docker rm init_deploy || true
-            docker run -d --name init_deploy -p 3000:3000 --env-file .env.api ${{ secrets.DOCKER_HUB_USERNAME }}/init_deploy:latest
+            docker run -d --name init_deploy -p 3000:3000 --env-file /var/www/deploy/.env.api ${{ secrets.DOCKER_HUB_USERNAME }}/init_deploy:latest
