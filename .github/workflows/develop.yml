@@ -1,12 +1,8 @@
 name: deploy
 
 on:
-  workflow_dispatch:
-    inputs:
-      branch:
-        description: 'Branch to deploy'
-        required: true
-        default: 'develop'
+  push:
+    branches: [develop]
 
 jobs:
   build-and-deploy:
