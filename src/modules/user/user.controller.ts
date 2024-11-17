@@ -34,4 +34,11 @@ export class UserController {
   getUsers() {
     return this.userService.getUsers();
   }
+
+
+  @Get("test")
+  @ApiOperation({ summary: 'Test' })
+  test() {
+    return "Hello World";
+  }
 }
