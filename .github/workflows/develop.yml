@@ -42,6 +42,13 @@ jobs:
           port: 22
           script: |
             docker pull ${{ secrets.DOCKER_HUB_USERNAME }}/init_deploy:latest
+
+            docker stop $(docker ps -aq) || true
+            docker rm $(docker ps -aq) || true
+            docker volume prune -f
+            docker network prune -f
+            docker image prune -f
+
             docker stop init_deploy || true
             docker rm init_deploy || true
             docker run -d --name init_deploy -p 3000:3000 --env-file /var/www/deploy/.env.api ${{ secrets.DOCKER_HUB_USERNAME }}/init_deploy:latest
